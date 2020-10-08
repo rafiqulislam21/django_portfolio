@@ -1,14 +1,13 @@
 <!doctype html>
 <html lang="en">
-
 <head>
-{%load static%}
+    {%load static%}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v4.1.1">
-    <title>Hi! It's Bijoy</title>
+    <title>Blogs</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/album/">
 
@@ -16,7 +15,6 @@
     <!-- CSS only -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
           integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-
 
     <style>
       @media (min-width: 768px) {
@@ -53,29 +51,26 @@
 </header>
 
 <main role="main">
-
-    <section class="jumbotron text-center">
-        <div class="container">
-            <img src="{%static 'my.jpg'%}" height="200">
-            <h1>Hi, I'm Bijoy</h1>
-            <p class="lead text-muted">Hey my name is Md. Rafiqul Islam and I love to make Django websites, It's the thrill of handling the requests that the people want!</p>
-            <p>
-                <a href="mailto:ribijoy@gmail.com" class="btn btn-primary my-2">Email Me</a>
-            </p>
-        </div>
-    </section>
-
+    <div class="container">
+        <h1 class="text-center pt-3">Welcome to Bijoy's Blogs</h1>
+        <br>
+        <br>
+        <h2>Latest Post</h2>
+    </div>
     <div class="album py-5 bg-light">
         <div class="container">
 
             <div class="row">
-                {%for job in jobs.all%}
+                {%for blog in blogs.all%}
                 <div class="col-md-4">
                     <div class="card mb-4 shadow-sm">
-                        <img class="card-img-top" height="200" src="{{job.image.url}}">
+                        <img class="card-img-bottom" height="200" src="{{blog.image.url}}">
                         <div class="card-body">
-                            <p class="card-text">{{job.summary}}</p>
+                            <a href="{%url 'detail' blog.id%}" class="card-text" > {{blog.title}}</a>
                         </div>
+                        <p class="text-muted text-center">{{blog.summary}}</p>
+                        <p class="text-muted text-center">{{blog.pub_date_pretty}}</p>
+
                     </div>
                 </div>
                 {% endfor %}
